@@ -11,8 +11,8 @@ export class Home implements OnInit {
   counter = 0;
 
   ngOnInit(): void {
-    setInterval(() => {
+    while (this.counter < 999) {
       this.items.push(this.counter++);
-    }, 10);
+    }
   }
 }
