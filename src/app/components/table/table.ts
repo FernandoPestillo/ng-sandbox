@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GridModule } from '@syncfusion/ej2-angular-grids';
+import { FilterService, GridModule, PageService, SortService } from '@syncfusion/ej2-angular-grids';
 import { data } from '../../data/datasource';
 
 @Component({
@@ -7,6 +7,7 @@ import { data } from '../../data/datasource';
   imports: [GridModule],
   templateUrl: './table.html',
   styleUrl: './table.scss',
+  providers: [PageService, SortService, FilterService],
 })
 export class Table implements OnInit {
   public data?: object[];
