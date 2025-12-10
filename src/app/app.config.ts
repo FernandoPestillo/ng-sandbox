@@ -17,6 +17,13 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(withInterceptorsFromDi()),
     provideAnimations(),
-    provideToastr(),
+    provideToastr({
+      enableHtml: true,
+      closeButton: true,
+      tapToDismiss: false,
+      timeOut: 3000,
+      extendedTimeOut: 3000,
+      progressBar: true,
+    }),
   ],
 };

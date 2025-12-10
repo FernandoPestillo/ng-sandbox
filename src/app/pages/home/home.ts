@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Theme } from '../../services/theme';
+import { Theme } from '../../services/configurations/theme';
 
 @Component({
   selector: 'app-home',
