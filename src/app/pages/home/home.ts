@@ -30,4 +30,8 @@ export class Home implements OnInit {
   toggleTheme() {
     this.themeService.toggleTheme();
   }
+
+  get currentTheme() {
+    return this.themeService.getCurrentTheme();
+  }
 }

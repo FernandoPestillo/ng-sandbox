@@ -1,7 +1,9 @@
 <div style="background-color: var(--bg-color)">
   <h1>Home Page</h1>
 
-  <button (click)="exibirAlerta()">TOASTR</button>
+  <button (click)="exibirAlerta()">
+    Mudar para {{ currentTheme === 'light' ? 'dark' : 'light' }}
+  </button>
 </div>
 
 <!-- @for (item of items; track $index) { @$!$%&*(_*&) } -->
