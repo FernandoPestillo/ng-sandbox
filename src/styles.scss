@@ -9,6 +9,25 @@
 @import '../node_modules/@syncfusion/ej2-notifications/styles/material.css';
 @import '../node_modules/@syncfusion/ej2-angular-grids/styles/material.css';
 
+/* Tema padrão (light) */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #222222;
+  --primary-color: #0066ff;
+}
+
+/* Tema dark */
+.dark-theme {
+  --bg-color: rgb(60 60 70);
+  --text-color: #e0e0e0;
+  --primary-color: #4a90e2;
+}
+
 html {
-  background: rgb(60 60 70);
+  background-color: rgb(60 60 70);
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--bg-color);
 }

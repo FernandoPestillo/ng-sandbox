@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { Theme } from '../../services/theme';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ export class Home implements OnInit {
   items: number[] = [];
   counter = 0;
 
-  constructor(private toastr: ToastrService) {}
+  constructor(private toastr: ToastrService, private themeService: Theme) {}
 
   ngOnInit(): void {
     while (this.counter < 999) {
@@ -22,5 +23,11 @@ export class Home implements OnInit {
   exibirAlerta() {
     console.log('TOASTR');
     this.toastr.warning('TOASTR');
+
+    this.toggleTheme();
+  }
+
+  toggleTheme() {
+    this.themeService.toggleTheme();
   }
 }
