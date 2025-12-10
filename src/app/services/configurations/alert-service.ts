@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { DialogService } from './dialogs/dialog-service';
+import { DynamicFormService } from './dialogs/dynamic-form-service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AlertService {
-  constructor(private toastr: ToastrService, private dialogService: DialogService) {}
+  constructor(private toastr: ToastrService, private dynamicForm: DynamicFormService) {}
 
   info(alert: { message: string; title?: string }) {
     this.toastr.info(alert.message, alert.title);
@@ -19,9 +19,11 @@ export class AlertService {
   error(alert: { message: string; title?: string }) {
     const toast = this.toastr.error(alert.message, alert.title);
 
+    const tipo = 'empresa';
+    const entityId = 1;
     toast.onTap.subscribe(() => {
       console.log('Clicou');
-      this.dialogService.abrirDialogoForm(alert.message);
+      this.dynamicForm.open(tipo, entityId);
     });
   }
 
