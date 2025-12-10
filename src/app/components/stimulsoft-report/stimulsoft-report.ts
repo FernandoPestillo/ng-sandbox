@@ -13,10 +13,10 @@ export class StimulsoftReport implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    // var report = new Stimulsoft.Report.StiReport();
-    // report.loadFile('reports/Invoice.mrt');
+    var report = new Stimulsoft.Report.StiReport();
+    report.loadFile('./Report.mrt');
 
-    // this.viewer.report = report;
+    this.viewer.report = report;
     this.viewer.renderHtml('viewer');
   }
 }
