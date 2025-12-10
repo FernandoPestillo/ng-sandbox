@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { DialogService } from './dialog-service';
+import { DialogService } from './dialogs/dialog-service';
 
 @Injectable({
   providedIn: 'root',
