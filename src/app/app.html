@@ -1,1 +1,46 @@
-<router-outlet />
+<nav class="sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo à esquerda -->
+      <div class="flex items-center">
+        <div class="logo">Ng SandBox</div>
+      </div>
+
+      <!-- Itens de navegação no meio -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/test-page" class="nav-link">Test Page</a>
+      </div>
+
+      <!-- Opções à direita -->
+      <div class="flex items-center gap-4">
+        <!-- Botão de tema -->
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          aria-label="Alternar tema"
+          (click)="toggleTheme()"
+        >
+          <span id="themeIcon">{{ currentTheme === 'light' ? '☀️' : '🌙' }}</span>
+        </button>
+
+        <!-- Menu hamburguer (responsivo) -->
+        <button id="menuToggle" class="md:hidden theme-toggle" aria-label="Menu">
+          <span>☰</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu mobile -->
+    <div id="mobileMenu" class="hidden md:hidden pb-4">
+      <a href="#" class="nav-link block py-2">Início</a>
+      <a href="#" class="nav-link block py-2">Sobre</a>
+      <a href="#" class="nav-link block py-2">Serviços</a>
+      <a href="#" class="nav-link block py-2">Contato</a>
+    </div>
+  </div>
+</nav>
+
+<main class="max-w-7xl mx-auto px-4 py-12">
+  <router-outlet></router-outlet>
+</main>

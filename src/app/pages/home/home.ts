@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
-import { Theme } from '../../services/configurations/theme';
 
 @Component({
   selector: 'app-home',
@@ -9,29 +7,7 @@ import { Theme } from '../../services/configurations/theme';
   styleUrl: './home.scss',
 })
 export class Home implements OnInit {
-  items: number[] = [];
-  counter = 0;
+  constructor() {}
 
-  constructor(private toastr: ToastrService, private themeService: Theme) {}
-
-  ngOnInit(): void {
-    while (this.counter < 999) {
-      this.items.push(this.counter++);
-    }
-  }
-
-  exibirAlerta() {
-    console.log('TOASTR');
-    this.toastr.warning('TOASTR');
-
-    this.toggleTheme();
-  }
-
-  toggleTheme() {
-    this.themeService.toggleTheme();
-  }
-
-  get currentTheme() {
-    return this.themeService.getCurrentTheme();
-  }
+  ngOnInit(): void {}
 }
