@@ -1,38 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { Cliente } from '../../pages/modules/cliente/cliente';
-import { MatDialog } from '@angular/material/dialog';
 import { AlertService } from '../../services/configurations/alert-service';
+import { DialogModule } from '@syncfusion/ej2-angular-popups';
 
 @Component({
   selector: 'app-modal-manager-component',
-  imports: [],
+  imports: [DialogModule],
   templateUrl: './modal-manager-component.html',
   styleUrl: './modal-manager-component.scss',
 })
 export class ModalManagerComponent implements OnInit {
-  constructor(private alertService: AlertService, private dialog: MatDialog) {}
+  @ViewChild('dialogContent', { read: ViewContainerRef }) container!: ViewContainerRef;
+  @ViewChild('dynamicDialog') dialog: any;
+
+  dialogTitle = '';
+  isOpen = false;
+  currentComponent!: ComponentRef<any>;
+
+  constructor(private alertService: AlertService) {}
 
   ngOnInit() {
     this.alertService.errorEvent$.subscribe((event) => {
-      this.abrirModal(event);
+      this.open(Cliente, 'Cadastro de Cliente');
     });
   }
 
-  abrirModal(event: { tipoEntidade: string; id: string }) {
-    switch (event.tipoEntidade) {
-      case 'cliente':
-        this.dialog.open(Cliente, {
-          data: { id: event.id },
-        });
-        break;
+  open(component: any, title: string) {
+    this.dialogTitle = title;
+    this.isOpen = true;
 
-      // case 'venda':
-      //   this.dialog.open(VendaFormModalComponent, {
-      //     data: { id: event.id }
-      //   });
-      //   break;
+    // limpa conteúdo anterior
+    this.container.clear();
 
-      // outros modais...
-    }
+    // cria o novo componente dentro do dialog
+    this.currentComponent = this.container.createComponent(component);
+  }
+
+  close() {
+    this.isOpen = false;
+    this.container.clear();
   }
 }
