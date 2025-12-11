@@ -1,12 +1,19 @@
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { DynamicFormService } from './dialogs/dynamic-form-service';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AlertService {
-  constructor(private toastr: ToastrService, private dynamicForm: DynamicFormService) {}
+  private errorEvent = new Subject<{ tipoEntidade: string; id: string }>();
+  errorEvent$ = this.errorEvent.asObservable();
+
+  constructor(private toastr: ToastrService) {}
+
+  private emitirErro(data: { tipoEntidade: string; id: string }) {
+    this.errorEvent.next(data);
+  }
 
   info(alert: { message: string; title?: string }) {
     this.toastr.info(alert.message, alert.title);
@@ -19,11 +26,11 @@ export class AlertService {
   error(alert: { message: string; title?: string }) {
     const toast = this.toastr.error(alert.message, alert.title);
 
-    const tipo = 'empresa';
+    const tipo = 'cliente';
     const entityId = 1;
     toast.onTap.subscribe(() => {
       console.log('Clicou');
-      this.dynamicForm.open(tipo, entityId);
+      this.emitirErro({ tipoEntidade: 'cliente', id: '1' });
     });
   }
 

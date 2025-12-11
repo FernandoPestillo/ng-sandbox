@@ -1,33 +1,22 @@
 import { Component, signal } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { Theme } from './services/configurations/theme';
-import { FormRegistryService } from './services/configurations/dialogs/form-registry-service';
-import { Empresa } from './pages/modules/empresa/empresa';
-import { Cliente } from './pages/modules/cliente/cliente';
-import { Produto } from './pages/modules/produto/produto';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ModalManagerComponent } from './components/modal-manager-component/modal-manager-component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterModule],
+  imports: [RouterOutlet, RouterModule, MatDialogModule, ModalManagerComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class App {
   protected readonly title = signal('ng-sandbox');
 
-  protected themeIcon = '☀️';
-
-  constructor(private themeService: Theme, private registry: FormRegistryService) {
-    registry.register('empresa', Empresa);
-    registry.register('cliente', Cliente);
-    registry.register('produto', Produto);
-  }
+  constructor(private themeService: Theme) {}
 
   toggleTheme() {
     this.themeService.toggleTheme();
-    if (this.currentTheme === 'light') {
-      this.themeIcon = '☀️';
-    }
   }
 
   get currentTheme() {
