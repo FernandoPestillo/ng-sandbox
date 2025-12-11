@@ -1,1 +1,11 @@
-<p>empresa works!</p>
+<ejs-dialog
+  #dynamicDialog
+  [header]="dialogTitle"
+  [visible]="isOpen"
+  width="600px"
+  [allowDragging]="true"
+>
+  <ng-template #content let-data>
+    <div>Empresa:</div>
+  </ng-template>
+</ejs-dialog>
