@@ -8,8 +8,9 @@
 
       <!-- Itens de navegação no meio -->
       <div class="hidden md:flex items-center gap-8">
-        <a href="/" class="nav-link">Home</a>
-        <a href="/test-page" class="nav-link">Test Page</a>
+        @for (item of navLinks; track $index) {
+        <a [routerLink]="item.link" class="nav-link">{{ item.text }}</a>
+        }
       </div>
 
       <!-- Opções à direita -->
@@ -25,7 +26,12 @@
         </button>
 
         <!-- Menu hamburguer (responsivo) -->
-        <button id="menuToggle" class="md:hidden theme-toggle" aria-label="Menu">
+        <button
+          id="menuToggle"
+          class="md:hidden theme-toggle"
+          aria-label="Menu"
+          (click)="menuToggle()"
+        >
           <span>☰</span>
         </button>
       </div>
@@ -33,10 +39,9 @@
 
     <!-- Menu mobile -->
     <div id="mobileMenu" class="hidden md:hidden pb-4">
-      <a href="#" class="nav-link block py-2">Início</a>
-      <a href="#" class="nav-link block py-2">Sobre</a>
-      <a href="#" class="nav-link block py-2">Serviços</a>
-      <a href="#" class="nav-link block py-2">Contato</a>
+      @for (item of navLinks; track $index) {
+      <a [routerLink]="item.link" class="nav-link block py-2">{{ item.text }}</a>
+      }
     </div>
   </div>
 </nav>
