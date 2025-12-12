@@ -10,6 +10,9 @@ export class UserService {
   listar() {
     return this.http.get(this.apiUrl);
   }
+  getById(id: string) {
+    return this.http.get(`${this.apiUrl}/${id}`);
+  }
 
   criar(dados: any) {
     return this.http.post(this.apiUrl, dados);
