@@ -3,6 +3,8 @@ import { AlertService } from '../../services/configurations/alert-service';
 import { DialogModule } from '@syncfusion/ej2-angular-popups';
 import { Cliente } from '../../modules/cliente/cliente';
 import { Empresa } from '../../modules/empresa/empresa';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-modal-manager-component',
@@ -16,7 +18,7 @@ export class ModalManagerComponent implements OnInit {
 
   currentComponent!: ComponentRef<any>;
 
-  constructor(private alertService: AlertService) {}
+  constructor(private alertService: AlertService, private router: Router) {}
 
   ngOnInit() {
     this.alertService.errorEvent$.subscribe((event) => {
@@ -26,6 +28,10 @@ export class ModalManagerComponent implements OnInit {
       } else {
         this.open(Empresa, randomID);
       }
+    });
+
+    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
+      this.close();
     });
   }
 

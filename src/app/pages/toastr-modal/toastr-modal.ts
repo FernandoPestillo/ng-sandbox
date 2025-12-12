@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { AlertService } from '../../services/configurations/alert-service';
+import { Button } from '../../components/button/button';
 
 @Component({
   selector: 'app-toastr-modal',
-  imports: [],
+  imports: [Button],
   templateUrl: './toastr-modal.html',
   styleUrl: './toastr-modal.scss',
 })
