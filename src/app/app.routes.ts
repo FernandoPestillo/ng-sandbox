@@ -4,6 +4,7 @@ import { StimulsoftReport } from './components/stimulsoft-report/stimulsoft-repo
 import { StimulsoftDesigner } from './components/stimulsoft-designer/stimulsoft-designer';
 import { ToastrModal } from './pages/toastr-modal/toastr-modal';
 import { PageLayout } from './components/page-layout/page-layout';
+import { StatusPage } from './pages/status-page/status-page';
 
 export const routes: Routes = [
   {
@@ -15,6 +16,11 @@ export const routes: Routes = [
         path: 'toastr-modal',
         component: ToastrModal,
         data: { title: 'Toastr Modal', showInNavbar: true },
+      },
+      {
+        path: 'status',
+        component: StatusPage,
+        data: { title: 'Status', showInNavbar: true },
       },
     ],
   },

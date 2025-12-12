@@ -1,0 +1,36 @@
+.status-container {
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+
+.card {
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  background: (var(--bg-secondary));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &.ok {
+    border-left: 6px solid #3cb371;
+  }
+
+  &.warn {
+    border-left: 6px solid #f4a742;
+  }
+
+  &.error {
+    border-left: 6px solid #e74c3c;
+  }
+
+  &.maintenance {
+    border-left: 6px solid #3498db;
+  }
+}
+
+.status {
+  font-weight: bold;
+  text-transform: capitalize;
+}

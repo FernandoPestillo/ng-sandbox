@@ -1,0 +1,11 @@
+<div class="status-container">
+  <h1 class="mb-4 text-4xl text-center">Status dos Serviços</h1>
+
+  @for (svc of services; track $index) {
+  <div class="card" [ngClass]="getStatusClass(svc.status)">
+    <div class="title">{{ svc.name }}</div>
+    <div class="status">{{ svc.status | titlecase }}</div>
+    <div class="updated">Atualizado: {{ svc.lastUpdate | date : 'short' }}</div>
+  </div>
+  }
+</div>
