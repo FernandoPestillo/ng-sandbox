@@ -1,39 +1,15 @@
 import { Component, signal } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { Theme } from './services/configurations/theme';
 import { ModalManagerComponent } from './components/modal-manager-component/modal-manager-component';
 import { CommonModule } from '@angular/common';
+import { Navbar } from './components/navbar/navbar';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, RouterModule, ModalManagerComponent],
+  imports: [CommonModule, RouterOutlet, RouterModule, ModalManagerComponent, Navbar],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class App {
   protected readonly title = signal('ng-sandbox');
-
-  navLinks = [
-    { link: '/', text: 'Home' },
-    { link: '/test-page', text: 'Test Page' },
-    { link: '/report-designer', text: 'Designer' },
-  ];
-
-  constructor(private themeService: Theme) {}
-
-  toggleTheme() {
-    this.themeService.toggleTheme();
-  }
-
-  get currentTheme() {
-    return this.themeService.getCurrentTheme();
-  }
-
-  protected menuToggle() {
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    if (mobileMenu) {
-      mobileMenu.classList.toggle('hidden');
-    }
-  }
 }

@@ -1,1 +1,47 @@
-<p>navbar works!</p>
+<nav class="sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo à esquerda -->
+      <div class="flex items-center">
+        <div class="logo">Ng SandBox</div>
+      </div>
+
+      <!-- Itens de navegação no meio -->
+      <div class="hidden md:flex items-center gap-8">
+        @for (item of navLinks; track $index) {
+        <a [routerLink]="item.link" class="nav-link">{{ item.text }}</a>
+        }
+      </div>
+
+      <!-- Opções à direita -->
+      <div class="flex items-center gap-4">
+        <!-- Botão de tema -->
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          aria-label="Alternar tema"
+          (click)="toggleTheme()"
+        >
+          <span id="themeIcon">{{ currentTheme === 'light' ? '☀️' : '🌙' }}</span>
+        </button>
+
+        <!-- Menu hamburguer (responsivo) -->
+        <button
+          id="menuToggle"
+          class="md:hidden theme-toggle"
+          aria-label="Menu"
+          (click)="menuToggle()"
+        >
+          <span>☰</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu mobile -->
+    <div id="mobileMenu" class="hidden md:hidden pb-4">
+      @for (item of navLinks; track $index) {
+      <a [routerLink]="item.link" class="nav-link block py-2">{{ item.text }}</a>
+      }
+    </div>
+  </div>
+</nav>
