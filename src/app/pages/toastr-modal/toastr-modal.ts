@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { AlertService } from '../../services/configurations/alert-service';
 
 @Component({
-  selector: 'app-test-page',
+  selector: 'app-toastr-modal',
   imports: [],
-  templateUrl: './test-page.html',
-  styleUrl: './test-page.scss',
+  templateUrl: './toastr-modal.html',
+  styleUrl: './toastr-modal.scss',
 })
-export class TestPage {
+export class ToastrModal {
   constructor(private alertService: AlertService) {}
 
   exibirInfo() {

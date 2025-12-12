@@ -1,8 +1,8 @@
 import { Component, ComponentRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
-import { Cliente } from '../../pages/modules/cliente/cliente';
 import { AlertService } from '../../services/configurations/alert-service';
 import { DialogModule } from '@syncfusion/ej2-angular-popups';
-import { Empresa } from '../../pages/modules/empresa/empresa';
+import { Cliente } from '../../modules/cliente/cliente';
+import { Empresa } from '../../modules/empresa/empresa';
 
 @Component({
   selector: 'app-modal-manager-component',

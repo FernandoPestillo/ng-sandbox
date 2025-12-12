@@ -8,8 +8,8 @@
 
       <!-- Itens de navegação no meio -->
       <div class="hidden md:flex items-center gap-8">
-        @for (item of navLinks; track $index) {
-        <a [routerLink]="item.link" class="nav-link">{{ item.text }}</a>
+        @for (item of navRoutes; track $index) {
+        <a [routerLink]="item.path" class="nav-link">{{ item.title }}</a>
         }
       </div>
 
@@ -39,8 +39,8 @@
 
     <!-- Menu mobile -->
     <div id="mobileMenu" class="hidden md:hidden pb-4">
-      @for (item of navLinks; track $index) {
-      <a [routerLink]="item.link" class="nav-link block py-2">{{ item.text }}</a>
+      @for (item of navRoutes; track $index) {
+      <a [routerLink]="item.path" class="nav-link block py-2">{{ item.title }}</a>
       }
     </div>
   </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogModule } from '@syncfusion/ej2-angular-popups';
-import { UserService } from '../../../services/user/user.service';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-cliente',

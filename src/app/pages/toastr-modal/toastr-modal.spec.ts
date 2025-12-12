@@ -1,18 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TestPage } from './test-page';
+import { ToastrModal } from './toastr-modal';
 
-describe('TestPage', () => {
-  let component: TestPage;
-  let fixture: ComponentFixture<TestPage>;
+describe('ToastrModal', () => {
+  let component: ToastrModal;
+  let fixture: ComponentFixture<ToastrModal>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TestPage]
-    })
-    .compileComponents();
+      imports: [ToastrModal],
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(TestPage);
+    fixture = TestBed.createComponent(ToastrModal);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
