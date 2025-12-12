@@ -8,18 +8,21 @@ import { AlertService } from '../../services/configurations/alert-service';
   styleUrl: './toastr-modal.scss',
 })
 export class ToastrModal {
+  private mensagem = { message: 'Exibir mensagem' };
+  private mensagemComTitulo = { message: 'Mensagem do Toastr', title: 'Alerta' };
+
   constructor(private alertService: AlertService) {}
 
   exibirInfo() {
-    this.alertService.info({ message: 'TESTE', title: 'titulo' });
+    this.alertService.info(this.mensagem);
   }
   exibirWarning() {
-    this.alertService.warning({ message: 'TESTE' });
+    this.alertService.warning(this.mensagemComTitulo);
   }
   exibirErro() {
-    this.alertService.error({ message: 'TESTE' });
+    this.alertService.error(this.mensagemComTitulo);
   }
   exibirSucesso() {
-    this.alertService.success({ message: 'TESTE', title: 'titulo' });
+    this.alertService.success(this.mensagem);
   }
 }

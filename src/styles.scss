@@ -48,3 +48,14 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+
+.toast-container .ngx-toastr {
+  box-shadow: none !important;
+}
+.toast-success {
+  background-color: #43be43 !important;
+}
+
+.toast-info {
+  background-color: #1e71b6 !important;
+}
