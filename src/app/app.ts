@@ -16,6 +16,7 @@ export class App {
   navLinks = [
     { link: '/', text: 'Home' },
     { link: '/test-page', text: 'Test Page' },
+    { link: '/report-designer', text: 'Designer' },
   ];
 
   constructor(private themeService: Theme) {}

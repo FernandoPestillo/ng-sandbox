@@ -7,10 +7,17 @@ import { TestPage } from './pages/test-page/test-page';
 import { Empresa } from './pages/modules/empresa/empresa';
 import { Cliente } from './pages/modules/cliente/cliente';
 import { Produto } from './pages/modules/produto/produto';
+import { PageLayout } from './pages/page-layout/page-layout';
 
 export const routes: Routes = [
-  { path: '', component: Home },
-  { path: 'test-page', component: TestPage },
+  {
+    path: '',
+    component: PageLayout,
+    children: [
+      { path: '', component: Home },
+      { path: 'test-page', component: TestPage },
+    ],
+  },
   { path: 'report', component: StimulsoftReport },
   { path: 'report-designer', component: StimulsoftDesigner },
 
