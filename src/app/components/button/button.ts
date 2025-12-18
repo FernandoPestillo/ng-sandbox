@@ -15,7 +15,7 @@ export class Button {
   @Output() clicked = new EventEmitter<void>();
 
   baseClasses =
-    'font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 border focus:ring-4 focus:outline-none';
+    'font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 border focus:ring-1 focus:outline-none';
 
   variants: Record<ButtonVariant, string> = {
     info: `
@@ -25,10 +25,10 @@ export class Button {
       dark:focus:ring-blue-800
     `,
     warning: `
-      text-yellow-400 border-yellow-400 hover:text-white hover:bg-yellow-500
-      focus:ring-yellow-300
-      dark:border-yellow-300 dark:text-yellow-300 dark:hover:bg-yellow-400 dark:hover:text-white
-      dark:focus:ring-yellow-900
+      text-orange-100 border-orange-400 hover:text-white hover:bg-orange-500
+      focus:ring-orange-300
+      dark:border-orange-300 dark:text-orange-300 dark:hover:bg-orange-400 dark:hover:text-white
+      dark:focus:ring-orange-900
     `,
     success: `
       text-green-700 border-green-700 hover:text-white hover:bg-green-800
